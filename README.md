@@ -19,8 +19,7 @@ WkHtmlToX has several configuration options, you can find a comprehensive list o
 
 *Source code:*
 
-```
-#!delphi
+```delphi
 var
   ObjectSettings: IWkObjectSettings;
   GlobalSettings: IWkGlobalSettings;

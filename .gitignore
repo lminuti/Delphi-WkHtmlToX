@@ -1,0 +1,8 @@
+__history
+Win32
+wkhtmltopdf.exe
+wkhtmltox.dll
+*.local
+*.identcache
+*.stat
+Sample/04.StreamDemo/__recovery

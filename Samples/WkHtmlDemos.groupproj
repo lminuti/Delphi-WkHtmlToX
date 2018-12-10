@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E6A5DA9C-8614-4D27-B614-1E873C013ECD}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="01.ApiDemo\ApiDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="02.WrapperDemo\WrapperDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="03.ThreadedDemo\ThreadedDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="04.StreamDemo\StreamDemo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ApiDemo">
+        <MSBuild Projects="01.ApiDemo\ApiDemo.dproj"/>
+    </Target>
+    <Target Name="ApiDemo:Clean">
+        <MSBuild Projects="01.ApiDemo\ApiDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ApiDemo:Make">
+        <MSBuild Projects="01.ApiDemo\ApiDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="WrapperDemo">
+        <MSBuild Projects="02.WrapperDemo\WrapperDemo.dproj"/>
+    </Target>
+    <Target Name="WrapperDemo:Clean">
+        <MSBuild Projects="02.WrapperDemo\WrapperDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="WrapperDemo:Make">
+        <MSBuild Projects="02.WrapperDemo\WrapperDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ThreadedDemo">
+        <MSBuild Projects="03.ThreadedDemo\ThreadedDemo.dproj"/>
+    </Target>
+    <Target Name="ThreadedDemo:Clean">
+        <MSBuild Projects="03.ThreadedDemo\ThreadedDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ThreadedDemo:Make">
+        <MSBuild Projects="03.ThreadedDemo\ThreadedDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="StreamDemo">
+        <MSBuild Projects="04.StreamDemo\StreamDemo.dproj"/>
+    </Target>
+    <Target Name="StreamDemo:Clean">
+        <MSBuild Projects="04.StreamDemo\StreamDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StreamDemo:Make">
+        <MSBuild Projects="04.StreamDemo\StreamDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ApiDemo;WrapperDemo;ThreadedDemo;StreamDemo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ApiDemo:Clean;WrapperDemo:Clean;ThreadedDemo:Clean;StreamDemo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ApiDemo:Make;WrapperDemo:Make;ThreadedDemo:Make;StreamDemo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

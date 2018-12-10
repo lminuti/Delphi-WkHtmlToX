@@ -4,8 +4,11 @@
 
 ## What is it?
 
+`WkHtmlToPdf` is an open source (LGPLv3) command line tool and a C API (WkHtmlToX) to render *HTML* into *PDF* using the Qt WebKit rendering engine. These run entirely "headless" and do not require a display or display service.
+
 Delphi `WkHtmlToX Library` is an open source ([Apache license](https://www.apache.org/licenses/LICENSE-2.0)) wrapper around WkHtmlToX. You can find a basic header traslation from the C API (WkHtmlToX.Bindings.pas) and few classes that simplify its usage (WkHtmlToX.Core.pas).
-Inside the *sample* folder you can find 4 demos:
+
+Inside the *samples* folder you can find 4 demos:
 
 * *ApiDemo*: a simple example that convert a HTML using only the raw API 
 * *WrapperDemo*: same as before but with `IWkHtmlToPdf` class

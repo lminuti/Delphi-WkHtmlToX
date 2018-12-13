@@ -2,7 +2,7 @@
 {                                                                              }
 {  Delphi WkHtmlToX Library                                                    }
 {  Copyright (c) 2018 Luca Minuti                                              }
-{  https://bitbucket.org/lminuti/delphiwkhtmltox                               }
+{  https://github.com/lminuti/Delphi-WkHtmlToX                                 }
 {                                                                              }
 {******************************************************************************}
 {                                                                              }

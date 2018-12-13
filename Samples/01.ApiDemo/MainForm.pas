@@ -44,6 +44,7 @@ end;
 
 procedure TFormMain.FormDestroy(Sender: TObject);
 begin
+  (* We will no longer be needing wkhtmltopdf funcionality *)
   wkhtmltopdf_deinit;
   UnLoadWkHtmlToX;
 end;
@@ -53,6 +54,7 @@ begin
   if not LoadWkHtmlToX then
     raise Exception.Create('Library not found');
 
+  (* Init wkhtmltopdf in graphics less mode (only once) *)
   wkhtmltopdf_init(false);
 end;
 
@@ -88,6 +90,7 @@ begin
 // fprintf(stderr, "Warning: %s\n", msg);
 end;
 
+// https://github.com/wkhtmltopdf/wkhtmltopdf/blob/master/examples/pdf_c_api.c
 procedure TFormMain.Html2PDF(const Url, OutputPath: string);
 var
   gs: pwkhtmltopdf_global_settings;
@@ -95,7 +98,8 @@ var
 	c: pwkhtmltopdf_converter;
 begin
   (*
-   * Init wkhtmltopdf in graphics less mode (only once)
+   * Init wkhtmltopdf in graphics less mode
+   * You must call this function only one time
    * Look the "FormCreate" event handler
   *)
 	// wkhtmltopdf_init(false);
@@ -106,8 +110,8 @@ begin
 	 * the converter later, which is then responsible for freeing it
 	 *)
 	gs := wkhtmltopdf_create_global_settings();
-	(* We want the result to be storred in the file called test.pdf *)
-	wkhtmltopdf_set_global_setting(gs, 'out', 'test.pdf');
+	(* We want the result to be storred in the "OutputPath" *)
+  wkhtmltopdf_set_global_setting(gs, 'out', PAnsiChar(AnsiString(OutputPath)));
 
 	wkhtmltopdf_set_global_setting(gs, 'load.cookieJar', 'myjar.jar');
 	(*
